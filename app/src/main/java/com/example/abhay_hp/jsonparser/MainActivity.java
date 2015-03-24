@@ -52,7 +52,7 @@ public class MainActivity extends ListActivity {
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            ListAdapter adapter = new SimpleAdapter(context, jsonlist, R.layout.list_item, new String[]{SKU, AMOUNT, CURRENCY}, new int[]{R.id.sku, R.id.amount, R.id.currency});
+            ListAdapter adapter = new SimpleAdapter(context, jsonlist, R.layout.list_item, new String[]{SKU, AMOUNT}, new int[]{R.id.sku, R.id.amount});
             setListAdapter(adapter); // select single ListView item
             lv = getListView();
         }
@@ -64,18 +64,32 @@ public class MainActivity extends ListActivity {
                 try {
                     JSONObject c = json.getJSONObject(i);
                     String sku = c.getString(SKU);
-                    String amount= c.getString(AMOUNT);
-                    String currency = c.getString(CURRENCY);
-                    HashMap<String, String> map = new HashMap<String, String>(); // Add child node to HashMap key & value
-                    map.put(SKU, sku);
-                    map.put(AMOUNT, amount);
-                    map.put(CURRENCY, currency);
-                    jsonlist.add(map);
+                    String amount= c.getString(AMOUNT)+" "+c.getString(CURRENCY);
+                    int index=checkArrayList(sku);
+                    if(index>=0){
+                         amount=jsonlist.get(index).get(AMOUNT)+" , "+amount;
+                         jsonlist.get(index).put(AMOUNT,amount);
+                    }
+                    else{
+                        HashMap<String, String> map = new HashMap<String, String>(); // Add child node to HashMap key & value
+                        map.put(SKU, sku);
+                        map.put(AMOUNT, amount);
+                    jsonlist.add(map);}
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
             return null;
+        }
+
+        protected int checkArrayList(String a){
+           int i= jsonlist.size();
+            for(int j=0; j<i; j++){
+                if(jsonlist.get(j).get(SKU).equals(a)){
+                    return j;
+                }
+            }
+return -1;
         }
     }
 }
