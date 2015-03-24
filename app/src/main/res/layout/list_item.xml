@@ -28,7 +28,7 @@
             android:paddingTop="6dip"
             android:paddingBottom="2dip"
             android:text="sku  "/>
-        <TextView
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AMOUNT :  "
@@ -44,7 +44,7 @@
             android:textColor="#5d5d5d"
             android:paddingBottom="2dip"
             android:text="amount  ">
-        </TextView>
+        </TextView>-->
     </LinearLayout>
 
 </LinearLayout>
