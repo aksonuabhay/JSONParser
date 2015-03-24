@@ -28,23 +28,6 @@
             android:paddingTop="6dip"
             android:paddingBottom="2dip"
             android:text="sku  "/>
-        <!--<TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AMOUNT :  "
-            android:textColor="#43bd00"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingTop="6dip"
-            android:paddingBottom="2dip" />
-        <TextView
-            android:id="@+id/amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#5d5d5d"
-            android:paddingBottom="2dip"
-            android:text="amount  ">
-        </TextView>-->
     </LinearLayout>
 
 </LinearLayout>

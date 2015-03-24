@@ -14,11 +14,9 @@ public class DetailsActivity extends Activity {
         setContentView(R.layout.text_view);
         String amount=getIntent().getExtras().getString("amount");
         String name=getIntent().getExtras().getString("name");
-
-        TextView t= (TextView) findViewById(R.id.sku_id);
-        TextView t2= (TextView) findViewById(R.id.details);
-        t.setText(name);
-        t2.setText(amount);
-
+        TextView sku_id= (TextView) findViewById(R.id.sku_id);
+        TextView sku_amount= (TextView) findViewById(R.id.details);
+        sku_id.setText(name);
+        sku_amount.setText(amount);
     }
 }
